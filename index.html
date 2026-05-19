@@ -326,11 +326,9 @@ src="https://www.facebook.com/tr?id=736177285740429&ev=PageView&noscript=1"
   </div>
 
   <script>
-    // Pehle wale link ko hi default rakha h jab tak aap change nahi karte
     const TG_LINK = "https://t.me/+8PF0zurbesNjNmZl";
-    
-    // Agar Kunal wale button ke liye koi alag telegram link dalna ho, toh niche dalein:
-    const KUNAL_LINK = "https://t.me/+8PF0zurbesNjNmZl"; 
+    // Kunal button ke liye aapka naya link set kar diya hai
+    const KUNAL_LINK = "https://t.me/+jE7sEbzR23gwM2U1"; 
 
     // Main Lead track + open telegram (Original buttons ke liye)
     function openTelegramWithLead(){
@@ -343,7 +341,7 @@ src="https://www.facebook.com/tr?id=736177285740429&ev=PageView&noscript=1"
       window.open(TG_LINK, "_blank");
     }
 
-    // Sirf Kunal button ke liye separate function
+    // Sirf Kunal button ke liye alag function (Aapka naya link kholega)
     function openKunalLinkWithLead(){
       try{
         if(typeof fbq === "function"){
