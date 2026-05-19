@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trade With Munaf - Official</title>
 
- <!-- Meta Pixel Code -->
-<script>
+ <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -21,9 +20,7 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=736177285740429&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
-
-  <style>
+<style>
     *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
 
     body{
@@ -183,7 +180,7 @@ src="https://www.facebook.com/tr?id=736177285740429&ev=PageView&noscript=1"
     }
 
     @keyframes pulseGlow{
-      0%{box-shadow:0 0 0px rgba(42,171,238,0.0);}
+      0%{box-shadow:0 0px 0px rgba(42,171,238,0.0);}
       50%{box-shadow:0 0 28px rgba(42,171,238,0.65);}
       100%{box-shadow:0 0 0px rgba(42,171,238,0.0);}
     }
@@ -235,6 +232,27 @@ src="https://www.facebook.com/tr?id=736177285740429&ev=PageView&noscript=1"
       opacity:0.7;
       line-height:1.4;
     }
+
+    /* Kunal Ads Branding Style */
+    .kunal-ads {
+      margin-top: 18px;
+      display: inline-block;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .kunal-ads:hover {
+      color: #ffcc00;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 192, 0, 0.3);
+    }
   </style>
 </head>
 
@@ -260,13 +278,11 @@ src="https://www.facebook.com/tr?id=736177285740429&ev=PageView&noscript=1"
       <div class="pill">Free to Join</div>
     </div>
 
-    <!-- 10 sec timer -->
     <div class="timerBox">
       Auto joining in <span id="timer">10</span> seconds...<br/>
       If not opened, click the button below 👇
     </div>
 
-    <!-- Telegram Button -->
     <div class="tgBtn">
       <button id="joinBtn" type="button">
         <svg class="tgIcon" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
@@ -303,26 +319,51 @@ src="https://www.facebook.com/tr?id=736177285740429&ev=PageView&noscript=1"
       By joining, you agree to be contacted for educational updates.
     </div>
 
+    <div id="kunalAdsBtn" class="kunal-ads">
+      Ads managed by Kunal
+    </div>
+
   </div>
 
   <script>
+    // Pehle wale link ko hi default rakha h jab tak aap change nahi karte
     const TG_LINK = "https://t.me/+8PF0zurbesNjNmZl";
+    
+    // Agar Kunal wale button ke liye koi alag telegram link dalna ho, toh niche dalein:
+    const KUNAL_LINK = "https://t.me/+8PF0zurbesNjNmZl"; 
 
-    // Lead track + open telegram
+    // Main Lead track + open telegram (Original buttons ke liye)
     function openTelegramWithLead(){
       try{
         if(typeof fbq === "function"){
-          fbq('track', 'Lead'); // ✅ Lead event
+          fbq('track', 'Lead'); 
         }
       }catch(e){}
 
       window.open(TG_LINK, "_blank");
     }
 
-    // Button click
+    // Sirf Kunal button ke liye separate function
+    function openKunalLinkWithLead(){
+      try{
+        if(typeof fbq === "function"){
+          fbq('track', 'Lead'); 
+        }
+      }catch(e){}
+
+      window.open(KUNAL_LINK, "_blank");
+    }
+
+    // Original Join Button click
     const joinBtn = document.getElementById("joinBtn");
     joinBtn.addEventListener("click", function(){
       openTelegramWithLead();
+    });
+
+    // Kunal Ads Button Click
+    const kunalAdsBtn = document.getElementById("kunalAdsBtn");
+    kunalAdsBtn.addEventListener("click", function(){
+      openKunalLinkWithLead();
     });
 
     // 10 sec timer auto open
